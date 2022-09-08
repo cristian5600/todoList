@@ -1,0 +1,16 @@
+body,html {
+    height:100%;
+    width:100%;
+    margin:0px;
+    padding:0px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+}
+.footer , .header , .content {
+    width:100%;
+    border:solid;
+}
