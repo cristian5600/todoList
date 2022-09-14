@@ -22,21 +22,21 @@
 
 
     <div class="form-container  hidden project-form hidden-form">
-        <form class="myform">
+        <form id="form" class="project_form">
         <ul class="flex-outer">
             <li>
             <label for="project-title">Project title</label>
-            <input type="text" id="project-title" placeholder="Enter the project title here">
+            <input type="text" id="project-title" placeholder="Enter the project title here" required>
             </li>
             <li>
             <label for="due-date">Finish date:</label>
-            <input type="date" id="due-date" placeholder="Enter date">
+            <input type="date" id="due-date" placeholder="Enter date" required>
             </li>
             
             
             <li>
             <label for="description">Description</label>
-            <textarea rows="15" id="description" placeholder="Enter description here"></textarea>
+            <textarea rows="15" id="description" placeholder="Enter description here" required></textarea>
             </li>
             <li>
             <p>Importance</p>
@@ -48,7 +48,7 @@
                 <li>
                 <input type="checkbox" id="thirty-to-thirtynine">
                 <label for="thirty-to-thirtynine">Medium</label>
-                </li>
+                 </li>
                 <li>
                 <input type="checkbox" id="fourty-to-fourtynine">
                 <label for="fourty-to-fourtynine">High</label>

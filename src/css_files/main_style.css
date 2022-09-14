@@ -121,8 +121,3 @@ body {
     min-height: 100%;
     flex-grow: 5;
 }
-li{
-    display: flex;
-    flex-direction: row;
-}
-

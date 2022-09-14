@@ -18,7 +18,8 @@ import "./css_files/form.css";
 import "./pictures/frog.png";
 import "./pictures/menu.png";
 
-//import frog from "./assets/frog.png";
+
+
 
 document.body.innerHTML = header;
 document.body.innerHTML += content;
@@ -29,6 +30,8 @@ const link = document.createElement('link');
 link.href = './assets/images/frog.png';
 link.rel = 'icon';
 
+let projects = [];
+localStorage.setItem(`projects`,[1,2]);
 document.getElementsByTagName('head')[0].appendChild(link);
 makePanel();
 form_module();
