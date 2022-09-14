@@ -11,6 +11,7 @@ div {
 }
 
 body {
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -119,5 +120,9 @@ body {
     min-width: 500px;
     min-height: 100%;
     flex-grow: 5;
+}
+li{
+    display: flex;
+    flex-direction: row;
 }
 

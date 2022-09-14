@@ -1,38 +1,50 @@
 .hidden{
   visibility: hidden;
 }
-.hidden-form{
+.myform {
+  max-height: 100%;
+  max-width:100%;
+  border-style: solid;
+  overflow: auto;
+  height:fit-content;
+  width:fit-content;
+  background-color: thistle;
+  min-width: 70%;
+  min-height:80%;
+}
+.form-container{
+
     z-index: 10;
-    
+
     width: 100%;
-    height: 100%;
+    height:100%;
     position:fixed; 
     display: flex;
     justify-content: center;
     align-items: center;
-     background-color: rgba(110, 145, 180, 0.784); 
-}
-  .container {
-    width: 80%;
-    max-width: 1200px;
+    background-color: rgba(110, 145, 180, 0.784); 
     margin: 0 auto;
-    background-color: thistle;
-  }
+    /* background-color: thistle; */
+}
   
-  .container * {
+  
+  .form-container * {
     box-sizing: border-box;
   }
   
   .flex-outer,
   .flex-inner {
+
     list-style-type: none;
     padding: 10px;
+    height: fit-content;
   }
   
   .flex-outer {
-    max-width: 800px;
+ 
     margin: 0 auto;
     max-width: 100%;
+    height: fit-content;
   }
   
   .flex-outer li,
@@ -40,6 +52,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+
   }
   
   .flex-inner {
@@ -92,10 +105,17 @@
   }
   
   .flex-inner li {
-    width: 100px;
+    width: 150px;
   }
-.scroll {
-   overflow-x: hidden;
-    overflow-y: auto;
-    text-align:justify;
-}
+  
+  input , textarea{
+    font-family: Consolas,monaco,monospace; 
+    font-size: larger;
+    font-weight:normal;
+  }
+  
+   .scroll {
+      overflow-x: hidden;
+      overflow-y: auto;
+      /* text-align:justify; */
+  }  

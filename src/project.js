@@ -6,6 +6,5 @@ export class Project{
         this.dueDate = dueDate;
 
     }
-    
-
 }
+
