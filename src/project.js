@@ -1,4 +1,4 @@
-import { form_module } from "./form.js";
+// import { form_module } from "./form.js";
 export class Project{
     constructor(title,description,dueDate,low,medium,high){
         this.title = title;
@@ -42,6 +42,7 @@ function addProjectToElement(project,element,id){
     const projectElement = document.createElement(`div`);
     projectElement.setAttribute(`id`,id);
     projectElement.classList.add(`project`);
+    //element.prepend(projectElement);
     element.appendChild(projectElement);
     // projectElement.innerHTML = `something`;
     const wrapper = document.createElement(`div`);
@@ -82,11 +83,17 @@ function addProjectToElement(project,element,id){
     const button2 = document.createElement(`button`);
     const button3 = document.createElement(`button`);
     button1.classList.add(`btn`);
+    button1.classList.add(`edit`);
     button2.classList.add(`btn`);
+    button2.classList.add(`remove`);
     button3.classList.add(`btn`);
+    button3.classList.add(`view`);
     buttons.appendChild(button1);
     buttons.appendChild(button2);
     buttons.appendChild(button3);
+    button1.setAttribute(`id`,id);
+    button2.setAttribute(`id`,id);
+    button3.setAttribute(`id`,id);
     
     const btn1_i = document.createElement(`i`);
     btn1_i.classList.add(`fa`);
@@ -96,6 +103,7 @@ function addProjectToElement(project,element,id){
     const btn2_i = document.createElement(`i`);
     btn2_i.classList.add(`fa`);
     btn2_i.classList.add(`fa-trash`);
+
     button2.appendChild(btn2_i);
 
     const btn3_i = document.createElement(`i`);
@@ -123,5 +131,8 @@ function resetProjectsPanel(){
     while (elements[0]) {
         elements[0].parentNode.removeChild(elements[0]);
     }
+
+}
+function activateButtons(parent){
 
 }

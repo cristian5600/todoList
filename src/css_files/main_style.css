@@ -140,7 +140,7 @@ body {
     display: flex;
     justify-content:space-between;
     align-items: center; 
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 .projects-title{
     font-size: 40px;
@@ -150,8 +150,24 @@ body {
     max-width: 70%;
     text-overflow: ellipsis;
 }
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
 @media screen and (max-width: 700px) {
     .content{
         flex-wrap: wrap;
+    }
+    .project{
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:20px;
+    }
+    .wrapper{
+        width: 100%;
     }
   }
