@@ -1,10 +1,9 @@
 import { Project } from "./project.js";
 import projects from "./index.js"
 export const form_module = ()=>{
-
+    /// console.log(getEventListeners(document.getElementById(`add_project`)));
     const BTNP = document.getElementById(`add_project`); // button for add project
     BTNP.addEventListener(`click`,activate);
-
     form_activation();
 };
 const activate = ()=>{
@@ -34,6 +33,7 @@ const form_activation = ()=>{
                     project_form.elements["low"].checked,
                     project_form.elements["medium"].checked,
                     project_form.elements["high"].checked);
+                    
                 // projects.push(aux); NU MERGE
                 console.log(aux);
                 if(localStorage.getItem(`projects-index`) === null)
@@ -45,7 +45,9 @@ const form_activation = ()=>{
                     `p-${parseInt(localStorage.getItem(`projects-index`))}`,
                     JSON.stringify(aux));
                 document.getElementsByClassName(`project-form`)[0].classList.add(`hidden`);
+                
                 // resetpage() 
+                project_form.submit();
                 
             }
     }

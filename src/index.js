@@ -7,7 +7,9 @@ import {task} from "./taskFactory.js";
 import { makePanel } from "./panel.js";
 import { Project } from "./project.js";
 import {form_module} from "./form.js";
+import { showProjects } from "./project.js";
 window.Project = Project;
+
 
 import "./css_files/main_style.css";
 import "./css_files/basic_button.css";
@@ -35,8 +37,9 @@ let projects = [];
 document.getElementsByTagName('head')[0].appendChild(link);
 makePanel();
 form_module();
-
+showProjects();
 let x = new Project(1,2,3,4);
+document.getElementById(`show-projects`).click();
 // x.show();
 
 if (storageAvailable('localStorage')) {
