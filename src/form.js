@@ -17,15 +17,37 @@ const form_activation = ()=>{
 
     const formEvent = (e)=>{
         e.preventDefault();
-        let aux = new Project(project_form.elements["project-title"].value,
-        project_form.elements["description"].value,
-        project_form.elements["due-date"].value);
-        projects.push(aux);
-         console.log(projects);
-        
-
-        
-    
+        if( (   project_form.elements["low"].checked +
+            project_form.elements["medium"].checked+
+            project_form.elements["high"].checked > 1 )
+                            ||
+            (   project_form.elements["low"].checked +
+            project_form.elements["medium"].checked+
+            project_form.elements["high"].checked 
+                            === 0   )){
+                alert(`Incorect sellection of importance!`)
+            }
+            else{
+                let aux = new Project(project_form.elements["project-title"].value,
+                    project_form.elements["description"].value,
+                    project_form.elements["due-date"].value,
+                    project_form.elements["low"].checked,
+                    project_form.elements["medium"].checked,
+                    project_form.elements["high"].checked);
+                // projects.push(aux); NU MERGE
+                console.log(aux);
+                if(localStorage.getItem(`projects-index`) === null)
+                    localStorage.setItem(`projects-index`,1);
+                else
+                    localStorage.setItem(`projects-index`,
+                        parseInt(localStorage.getItem(`projects-index`))+1)
+                localStorage.setItem(
+                    `p-${parseInt(localStorage.getItem(`projects-index`))}`,
+                    JSON.stringify(aux));
+                document.getElementsByClassName(`project-form`)[0].classList.add(`hidden`);
+                // resetpage() 
+                
+            }
     }
     
     project_form.addEventListener(`submit`,formEvent); 

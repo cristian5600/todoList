@@ -31,7 +31,7 @@ link.href = './assets/images/frog.png';
 link.rel = 'icon';
 
 let projects = [];
-localStorage.setItem(`projects`,[1,2]);
+// localStorage.setItem(`projects`,[1,2]);
 document.getElementsByTagName('head')[0].appendChild(link);
 makePanel();
 form_module();
