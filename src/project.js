@@ -6,8 +6,7 @@ export class Project{
         this.dueDate = dueDate;
         this.low = low;
         this.medium = medium;
-        this.high = high;
-        
+        this.high = high;      
     }
     getTitle(){
         return this.title;
@@ -34,8 +33,7 @@ export const showProjects = ()=>{
                 let aux = JSON.parse(localStorage.getItem(`p-${i}`));
                 console.log(aux);
                 addProjectToElement(aux,info,`p-${i}`);
-                
-            }
+            }          
     })
 }
 function addProjectToElement(project,element,id){
@@ -111,7 +109,12 @@ function addProjectToElement(project,element,id){
     btn3_i.classList.add(`fa-eye`);
     button3.appendChild(btn3_i);
     
+    //activateButtonOnProjects(button1);
+    activateRemoveButton(button2);
+    //activateButtonOnProjects(button3);
     addProjectToPanel(project.title,id);
+
+
 }
 function addProjectToPanel(title,id){
     const btn = document.createElement(`div`);
@@ -126,13 +129,37 @@ function addProjectToPanel(title,id){
     text.innerHTML = title;
 }
 function resetProjectsPanel(){
-
     let elements = document.getElementsByClassName(`special`);
     while (elements[0]) {
         elements[0].parentNode.removeChild(elements[0]);
     }
+}
+function activateRemoveButton(btn){         //activates the button of a project
+    if(btn.classList.contains(`remove`))
+    {
+        btn.addEventListener(`click`,()=>{
+            let condition = false;
+            localStorage.removeItem(btn.id);
+            localStorage.setItem(`projects-index`,
+                (localStorage.getItem(`projects-index`)-1));
+            ///we have to fix p-i indexes of the local storage keys
+            for(let i = 1; i<= parseInt(localStorage.getItem(`projects-index`)) ; i++)
+            {
+                if(localStorage.getItem(`p-${i}`) === null)
+                    condition = true;
+                
+                if(condition === true)
+                    localStorage.setItem(`p-${i}`,localStorage.getItem(`p-${i+1}`));
+                
+                if(i === parseInt(localStorage.getItem(`projects-index`)))
+                    localStorage.removeItem(`p-${i+1}`);  
+            }
+            document.getElementById(`show-projects`).click(); 
+        })
+    }
+}
+function activateEditButton(btn){
 
 }
-function activateButtons(parent){
 
-}
+
