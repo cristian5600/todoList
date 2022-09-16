@@ -1,4 +1,5 @@
 // import { form_module } from "./form.js";
+import { ProjectEdit, projectEditView } from "./form.js";
 export class Project{
     constructor(title,description,dueDate,low,medium,high){
         this.title = title;
@@ -109,7 +110,7 @@ function addProjectToElement(project,element,id){
     btn3_i.classList.add(`fa-eye`);
     button3.appendChild(btn3_i);
     
-    //activateButtonOnProjects(button1);
+    activateEditButton(button1);
     activateRemoveButton(button2);
     //activateButtonOnProjects(button3);
     addProjectToPanel(project.title,id);
@@ -134,7 +135,7 @@ function resetProjectsPanel(){
         elements[0].parentNode.removeChild(elements[0]);
     }
 }
-function activateRemoveButton(btn){         //activates the button of a project
+function activateRemoveButton(btn){         
     if(btn.classList.contains(`remove`))
     {
         btn.addEventListener(`click`,()=>{
@@ -159,7 +160,9 @@ function activateRemoveButton(btn){         //activates the button of a project
     }
 }
 function activateEditButton(btn){
-
+    btn.addEventListener(`click`,()=>{
+        projectEditView(document.getElementById(btn.id));
+    })
 }
 
 
